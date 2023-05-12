@@ -9,7 +9,9 @@
     "rvest.vs-code-prettier-eslint",
     "streetsidesoftware.code-spell-checker-portuguese-brazilian",
     "streetsidesoftware.code-spell-checker",
-    "pkief.material-icon-theme"
+    "pkief.material-icon-theme",
+    "prisma.prisma",
+    "prisma.prisma-insider"
   ],
   "material-icon-theme.folders.associations": {
     "application": "container",
