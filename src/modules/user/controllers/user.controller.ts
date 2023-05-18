@@ -11,6 +11,7 @@ import {
 import { CreateUserDto } from '../dto/create-user.dto'
 import { UpdateUserDto } from '../dto/update-user.dto'
 import { UserService } from '../services/user.service'
+import { Public } from 'src/modules/auth/decorators/public.decorator'
 
 @Controller('user')
 export class UserController {

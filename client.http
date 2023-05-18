@@ -1,0 +1,27 @@
+POST http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "password": "123456789"
+}
+
+###
+GET http://localhost:3000/user HTTP/1.1
+# content-type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGVtYWlsLmNvbSIsIm5hbWUiOiJKb2huIERvZSIsInN1YiI6ImNsaHRmZ3FoYjAwMDB0bjE0eWd0Njk1N3IiLCJpYXQiOjE2ODQ0MzYxNzUsImV4cCI6MTY4NTA0MDk3NX0.K_dAKvZYX9VvJEMwCT6A4lf_d8lsiUbATMvza06fBCY
+
+###
+POST http://localhost:3000/auth HTTP/1.1
+content-type: application/json
+
+{
+    "email": "john.doe@email.com",
+    "password": "123456789"
+}
+
+###
+GET http://localhost:3000/auth/profile HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGVtYWlsLmNvbSIsIm5hbWUiOiJKb2huIERvZSIsInN1YiI6ImNsaHRmZ3FoYjAwMDB0bjE0eWd0Njk1N3IiLCJpYXQiOjE2ODQ0MzYxNzUsImV4cCI6MTY4NTA0MDk3NX0.K_dAKvZYX9VvJEMwCT6A4lf_d8lsiUbATMvza06fBCY

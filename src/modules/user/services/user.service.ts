@@ -49,6 +49,10 @@ export class UserService {
     return await this.userRepository.getById(id)
   }
 
+  async findOneByEmail(email: string) {
+    return await this.userRepository.findByEmail(email)
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto) {
     await this.checkUserExists(id)
 
