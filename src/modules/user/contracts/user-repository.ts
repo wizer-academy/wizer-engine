@@ -2,7 +2,7 @@ import { CreateUserDto } from '../dto/create-user.dto'
 import { UpdateUserDto } from '../dto/update-user.dto'
 import { User } from '../entities/user.entity'
 
-export interface UserRepositoryContracts {
+export interface UserRepositoryContract {
   save: (customerInput: CreateUserDto) => Promise<User>
   getAll: () => Promise<User[]>
   getById: (id: string) => Promise<User | null>

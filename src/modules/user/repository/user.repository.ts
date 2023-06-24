@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'src/database/prisma/prisma.service'
-import { UserRepositoryContracts } from '../contracts/user-repository'
+import { UserRepositoryContract } from '../contracts/user-repository'
 import { CreateUserDto } from '../dto/create-user.dto'
 import { User } from '../entities/user.entity'
 import { UpdateUserDto } from '../dto/update-user.dto'
 
 @Injectable()
-export class UserRepository implements UserRepositoryContracts {
+export class UserRepository implements UserRepositoryContract {
   constructor(private readonly prismaService: PrismaService) {}
 
   async save(userInput: CreateUserDto) {
