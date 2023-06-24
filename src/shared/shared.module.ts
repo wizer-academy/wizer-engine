@@ -1,9 +1,9 @@
 import { Global, Module } from '@nestjs/common'
-import { UUIDProvider } from './providers/uuid-provider/implementations/uuid-provider'
+import { UUIDProviderImpl } from './providers/uuid-provider/implementations/uuid-provider'
 
 @Global()
 @Module({
-  providers: [UUIDProvider],
-  exports: [UUIDProvider],
+  providers: [UUIDProviderImpl],
+  exports: [UUIDProviderImpl],
 })
 export class SharedModule {}

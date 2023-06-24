@@ -1,3 +1,3 @@
-export interface UUIDProviderContract {
-  generateId(): string
+export interface UUIDProvider {
+  generateUUID(): string
 }

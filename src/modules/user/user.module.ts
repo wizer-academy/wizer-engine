@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common'
-import { UUIDProvider } from 'src/shared/providers/uuid-provider/implementations/uuid-provider'
+import { UUIDProviderImpl } from 'src/shared/providers/uuid-provider/implementations/uuid-provider'
 import { UserRegisterService } from './services/register'
 import { UserDeleteService } from './services/delete'
 import { UserGetService } from './services/get'
@@ -27,7 +27,7 @@ import { UserRepository } from './repositories/implementations/user.repository'
     UserUpdateService,
     {
       provide: 'UUIDProvider',
-      useClass: UUIDProvider,
+      useClass: UUIDProviderImpl,
     },
   ],
   exports: [UserGetService],

@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid'
-import { UUIDProviderContract } from '../contract/uuid-provider'
+import { UUIDProvider } from '../contract/uuid-provider'
 
-export class UUIDProvider implements UUIDProviderContract {
-  generateId(): string {
+export class UUIDProviderImpl implements UUIDProvider {
+  generateUUID(): string {
     return uuidv4()
   }
 }

@@ -3,8 +3,8 @@ import { ConflictException, Inject, Injectable } from '@nestjs/common'
 import * as bcrypt from 'bcrypt'
 import { UserRegistrationInput } from '../dto/user-registration-input'
 import { User } from '../entities/user.entity'
-import { UUIDProvider } from 'src/shared/providers/uuid-provider/implementations/uuid-provider'
 import { UserRepository } from '../repositories/implementations/user.repository'
+import { UUIDProvider } from 'src/shared/providers/uuid-provider/contract/uuid-provider'
 
 @Injectable()
 export class UserRegisterService {
@@ -26,7 +26,7 @@ export class UserRegisterService {
 
     password = await bcrypt.hash(password, 10)
 
-    const id = this.uuidProvider.generateId()
+    const id = this.uuidProvider.generateUUID()
 
     const user = new User({ id, email, name, password })
 
