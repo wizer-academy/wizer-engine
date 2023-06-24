@@ -1,12 +1,15 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 
 import * as bcrypt from 'bcrypt'
 import { UserUpdateInput } from '../dto/user-update-input'
-import { UserRepository } from '../repositories/implementations/user.repository'
+import { UserRepository } from '../repositories/contracts/user-repository'
 
 @Injectable()
 export class UserUpdateService {
-  constructor(private readonly userRepository: UserRepository) {}
+  constructor(
+    @Inject('UserRepository')
+    private readonly userRepository: UserRepository,
+  ) {}
 
   private async checkUserExists(id: string): Promise<void> {
     const existsUser = await this.userRepository.getById(id)

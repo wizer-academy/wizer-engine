@@ -3,11 +3,11 @@ import { UserModule } from './modules/user/user.module'
 import { AuthModule } from './modules/auth/auth.module'
 import { ConfigModule } from '@nestjs/config'
 import { SharedModule } from './shared/shared.module'
-import { PrismaModule } from './infra/database/prisma/prisma.module'
+import { PersistenceModule } from './infra/persistence/persistence.module'
 @Module({
   imports: [
     UserModule,
-    PrismaModule,
+    PersistenceModule,
     AuthModule,
     SharedModule,
     ConfigModule.forRoot(),

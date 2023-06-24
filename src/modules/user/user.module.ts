@@ -8,11 +8,11 @@ import { UserGetController } from './controllers/user-get'
 import { UserUpdateController } from './controllers/user-update'
 import { UserDeleteController } from './controllers/user-delete'
 import { UserRegisterController } from './controllers/user-register'
-import { PrismaModule } from 'src/infra/database/prisma/prisma.module'
-import { UserRepository } from './repositories/implementations/user.repository'
+import { UserRepositoryOrmPrisma } from './repositories/implementations/user-repository-orm-prisma'
+import { PersistenceModule } from 'src/infra/persistence/persistence.module'
 
 @Module({
-  imports: [PrismaModule],
+  imports: [PersistenceModule],
   controllers: [
     UserGetController,
     UserUpdateController,
@@ -20,7 +20,6 @@ import { UserRepository } from './repositories/implementations/user.repository'
     UserRegisterController,
   ],
   providers: [
-    UserRepository,
     UserRegisterService,
     UserDeleteService,
     UserGetService,
@@ -28,6 +27,10 @@ import { UserRepository } from './repositories/implementations/user.repository'
     {
       provide: 'UUIDProvider',
       useClass: UUIDProviderImpl,
+    },
+    {
+      provide: 'UserRepository',
+      useClass: UserRepositoryOrmPrisma,
     },
   ],
   exports: [UserGetService],
