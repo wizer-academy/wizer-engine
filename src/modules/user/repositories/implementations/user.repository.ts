@@ -1,25 +1,25 @@
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from 'src/database/prisma/prisma.service'
 import { UserRepositoryContract } from '../contracts/user-repository'
-import { CreateUserDto } from '../dto/create-user.dto'
-import { User } from '../entities/user.entity'
-import { UpdateUserDto } from '../dto/update-user.dto'
+import { UserRegistrationInput } from '../../dto/user-registration-input'
+import { UserUpdateInput } from '../../dto/user-update-input'
+import { UserOutput } from '../../dto/user-output'
+import { PrismaService } from 'src/infra/database/prisma/prisma.service'
 
 @Injectable()
 export class UserRepository implements UserRepositoryContract {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async save(userInput: CreateUserDto) {
+  async save(input: UserRegistrationInput) {
     return await this.prismaService.user.create({
-      data: userInput,
+      data: input,
     })
   }
 
-  async getAll(): Promise<User[]> {
+  async getAll(): Promise<UserOutput[]> {
     return await this.prismaService.user.findMany()
   }
 
-  async getById(id: string): Promise<User | null> {
+  async getById(id: string): Promise<UserOutput | null> {
     return await this.prismaService.user.findFirst({
       where: {
         id,
@@ -27,7 +27,7 @@ export class UserRepository implements UserRepositoryContract {
     })
   }
 
-  async update(id: string, userInput: UpdateUserDto): Promise<User> {
+  async update(id: string, userInput: UserUpdateInput): Promise<UserOutput> {
     return await this.prismaService.user.update({
       data: userInput,
       where: {
@@ -36,15 +36,15 @@ export class UserRepository implements UserRepositoryContract {
     })
   }
 
-  async delete(userId: string): Promise<User> {
+  async delete(id: string): Promise<UserOutput> {
     return await this.prismaService.user.delete({
       where: {
-        id: userId,
+        id,
       },
     })
   }
 
-  async findByEmail(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<UserOutput | null> {
     return await this.prismaService.user.findUnique({
       where: {
         email,
