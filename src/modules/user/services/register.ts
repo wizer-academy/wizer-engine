@@ -15,7 +15,7 @@ export class UserRegisterService {
     private readonly uuidProvider: UUIDProvider,
   ) {}
 
-  async create(input: UserRegistrationInput) {
+  async register(input: UserRegistrationInput) {
     let { email, name, password } = input
 
     const exitsEmail = await this.userRepository.findByEmail(email)

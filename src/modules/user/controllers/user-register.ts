@@ -9,6 +9,6 @@ export class UserRegisterController {
 
   @Post()
   create(@Body() input: UserRegistrationInput) {
-    return this.userRegisterService.create(input)
+    return this.userRegisterService.register(input)
   }
 }
