@@ -12,6 +12,7 @@ export class UserAdapter {
       email: user.email,
       name: user.name,
       urlProfile: user.profile_url || null,
+      interests: user.interests || [],
     }
   }
 }
