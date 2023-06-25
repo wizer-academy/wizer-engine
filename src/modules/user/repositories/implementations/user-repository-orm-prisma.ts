@@ -21,7 +21,11 @@ export class UserRepositoryOrmPrisma implements UserRepository {
   }
 
   async getAll(): Promise<UserOutput[] | null> {
-    const users = await this.ormPrisma.user.findMany()
+    const users = await this.ormPrisma.user.findMany({
+      include: {
+        interests: true,
+      },
+    })
 
     if (!users) {
       return
@@ -33,6 +37,9 @@ export class UserRepositoryOrmPrisma implements UserRepository {
     const user = await this.ormPrisma.user.findFirst({
       where: {
         id,
+      },
+      include: {
+        interests: true,
       },
     })
 
