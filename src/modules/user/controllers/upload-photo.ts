@@ -1,5 +1,7 @@
 import {
   Controller,
+  MaxFileSizeValidator,
+  ParseFilePipe,
   ParseUUIDPipe,
   Post,
   Query,
@@ -16,9 +18,19 @@ export class UserUploadPhotoController {
 
   @Post('upload-photo')
   @UseInterceptors(FileInterceptor('photo'))
-  uploadFile(
+  uploadPhoto(
     @Query('id', ParseUUIDPipe) id: string,
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new MaxFileSizeValidator({
+            maxSize: 512000,
+          }),
+        ],
+        fileIsRequired: true,
+      }),
+    )
+    file: Express.Multer.File,
   ) {
     return this.uploadPhotoService.uploadPhoto(id, file)
   }
