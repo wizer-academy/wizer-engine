@@ -30,6 +30,7 @@ export class UserRepositoryOrmPrisma implements UserRepository {
     if (!users) {
       return
     }
+
     return UserAdapter.toDomainList(users)
   }
 
@@ -95,5 +96,47 @@ export class UserRepositoryOrmPrisma implements UserRepository {
     })
 
     return UserAdapter.toDomain(user)
+  }
+
+  async addInterests(id: string, interestsId: string) {
+    return await this.ormPrisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        interests: {
+          connect: {
+            id: interestsId,
+          },
+        },
+      },
+    })
+  }
+
+  async updateInterests(id: string, interestsId: string) {
+    await this.getById(id)
+
+    await this.ormPrisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        interests: {
+          set: {
+            id: interestsId,
+          },
+        },
+      },
+    })
+
+    return await this.getById(id)
+  }
+
+  async existsInterest(id: string) {
+    return await this.ormPrisma.interest.findUnique({
+      where: {
+        id,
+      },
+    })
   }
 }
