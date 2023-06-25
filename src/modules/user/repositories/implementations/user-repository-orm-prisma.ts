@@ -76,4 +76,17 @@ export class UserRepositoryOrmPrisma implements UserRepository {
 
     return user
   }
+
+  async updatePhoto(id: string, photoUrl: string): Promise<UserOutput> {
+    const user = await this.ormPrisma.user.update({
+      data: {
+        profile_url: photoUrl,
+      },
+      where: {
+        id,
+      },
+    })
+
+    return UserAdapter.toDomain(user)
+  }
 }

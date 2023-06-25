@@ -3,4 +3,5 @@ export type UserModel = {
   email: string
   password: string
   name: string
+  profile_url?: string
 }

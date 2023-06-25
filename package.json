@@ -30,6 +30,7 @@
     "bcrypt": "^5.1.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "firebase-admin": "^11.9.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "uuid": "^9.0.0"
@@ -41,6 +42,7 @@
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/express": "^4.17.17",
     "@types/jest": "29.5.0",
+    "@types/multer": "^1.4.7",
     "@types/node": "18.15.11",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.60.0",

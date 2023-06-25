@@ -26,3 +26,8 @@ content-type: application/json
 GET http://localhost:3000/auth/profile HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5zb25AZW1haWwuY29tIiwibmFtZSI6IkpvaG5zb24iLCJzdWIiOiIxZjEwZjE4Zi0zM2UzLTQyMWUtOTc1Yi1mYmVlZWYwMGVhZmYiLCJpYXQiOjE2ODc1NzYxNzYsImV4cCI6MTY4ODE4MDk3Nn0.aQ4QIXt6Z6gXw6EC6HHJpm6T2xoKJOoQd8tYeWxIgJ0
+
+###
+DELETE  http://localhost:3000/user/1f10f18f-33e3-421e-975b-fbeeef00eaff HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGVtYWlsLmNvbSIsIm5hbWUiOiJKb2huIERvZSIsInN1YiI6ImNsaHRmZ3FoYjAwMDB0bjE0eWd0Njk1N3IiLCJpYXQiOjE2ODc1NzA2MzgsImV4cCI6MTY4ODE3NTQzOH0.B0uNldumU-0QSEcv_VPGvCfYNgLJ1pk3YFzl0rB6QFc

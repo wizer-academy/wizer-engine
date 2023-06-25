@@ -3,6 +3,7 @@ type UserProps = {
   email: string
   password: string
   name: string
+  profile_url?: string
 }
 
 export class User {
