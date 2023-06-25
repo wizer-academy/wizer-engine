@@ -11,4 +11,7 @@ export interface UserRepository {
   delete: (id: string) => Promise<UserOutput>
   findByEmail: (email: string) => Promise<UserModel | null>
   updatePhoto(id: string, photoUrl: string): Promise<UserOutput>
+  addInterests(id: string, interestsId: string)
+  updateInterests(id: string, interestsId: string)
+  existsInterest(id: string)
 }
