@@ -12,6 +12,9 @@ import { UserRepositoryOrmPrisma } from './repositories/implementations/user-rep
 import { PersistenceModule } from 'src/infra/persistence/persistence.module'
 import { UserUploadPhotoController } from './controllers/upload-photo'
 import { UploadPhotoService } from './services/upload-photo'
+import { InterestsAddController } from './controllers/interests-add'
+import { AddInterestsService } from './services/add-interests'
+import { UpdateInterestsService } from './services/update-interests'
 
 @Module({
   imports: [PersistenceModule],
@@ -21,6 +24,7 @@ import { UploadPhotoService } from './services/upload-photo'
     UserDeleteController,
     UserRegisterController,
     UserUploadPhotoController,
+    InterestsAddController,
   ],
   providers: [
     UserRegisterService,
@@ -28,6 +32,8 @@ import { UploadPhotoService } from './services/upload-photo'
     UserGetService,
     UserUpdateService,
     UploadPhotoService,
+    AddInterestsService,
+    UpdateInterestsService,
     {
       provide: 'UUIDProvider',
       useClass: UUIDProviderImpl,
