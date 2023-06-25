@@ -8,10 +8,17 @@ datasource db {
 }
 
 model User {
-  id   String @id @default(cuid())
+  id   String @id @default(uuid())
   name String
 
-  email    String @unique
-  password String
+  email       String      @unique
+  password    String
   profile_url String?
+  interests   Interest[]
+}
+
+model Interest {
+  id    String @id @default(uuid())
+  name  String
+  users User[]
 }
