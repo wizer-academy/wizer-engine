@@ -6,7 +6,6 @@ import {
   ApiBearerAuth,
   ApiNotFoundResponse,
   ApiOkResponse,
-  ApiResponse,
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger'
@@ -22,13 +21,11 @@ export class UserGetController {
    * Obtém todos os usuários
    */
   @Get()
-  @ApiResponse({
-    status: 200,
+  @ApiOkResponse({
     description: 'Obtido com sucesso.',
     type: [UserOutput],
   })
-  @ApiResponse({
-    status: 401,
+  @ApiUnauthorizedResponse({
     description: 'Não autorizado.',
   })
   async getAll(): Promise<UserOutput[]> {
