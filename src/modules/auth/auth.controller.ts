@@ -17,7 +17,7 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger'
-import { SignInOutput } from '../user/dto/sign-in-output.dto'
+import { SignInOutput } from './dto/sign-in-output.dto'
 import { Request } from 'express'
 
 @ApiTags('Authentication')
