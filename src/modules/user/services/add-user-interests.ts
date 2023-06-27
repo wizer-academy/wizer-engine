@@ -4,7 +4,7 @@ import { UserRepository } from '../repositories/contracts/user-repository'
 import { InterestsInput } from '../dto/user-interests'
 
 @Injectable()
-export class AddInterestsService {
+export class AddUserInterestsService {
   constructor(
     @Inject('UserRepository')
     private readonly userRepository: UserRepository,
