@@ -1,73 +1,41 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Wizer Engine
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Prepare-se para a revolução educacional com a Wizer! Estamos construindo uma plataforma de Streaming Educacional inovadora, que oferecerá acesso gratuito a conteúdo educativo de alta qualidade. Nossa missão é tornar a educação acessível a todos, em qualquer lugar. Junte-se a nós nessa jornada emocionante enquanto construímos o futuro da aprendizagem.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Sobre o Projeto
 
-## Description
+O Wizer Engine é a parte do projeto responsável pelo desenvolvimento e gerenciamento da infraestrutura de servidor da plataforma Wizer.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Tecnologias Utilizadas
 
-## Installation
+- **Nest.js:** Framework de desenvolvimento para Node.js, que oferece uma arquitetura modular e baseada em componentes, facilitando a construção de aplicativos escaláveis e robustos.
+- **TypeScript:** Linguagem de programação que adiciona tipagem estática opcional ao JavaScript, permitindo um desenvolvimento mais seguro e produtivo.
+- **Prisma:** ORM (Object-Relational Mapping) de banco de dados que simplifica a interação com o banco de dados, fornecendo uma camada de abstração e facilitando a manipulação dos dados.
 
-```bash
-$ npm install
-```
+## Como Usar
 
-## Running the app
+1. Certifique-se de ter o Node.js e o npm instalados em sua máquina.
+2. Clone este repositório: `git clone <https://github.com/wizer-academy/wizer-engine.git>`
+3. Navegue até o diretório do projeto: `cd wizer-engine`
+4. Instale as dependências do projeto: `pnpm i`
+5. Configure as variáveis de ambiente necessárias (consulte o arquivo `.env.example` para obter detalhes).
+6. Inicie o servidor de desenvolvimento: `pnpm start`
+7. O servidor estará em execução em `http://localhost:3000`.
 
-```bash
-# development
-$ npm run start
+## Contribuindo
 
-# watch mode
-$ npm run start:dev
+Agradecemos seu interesse em contribuir para o desenvolvimento da plataforma Wizer. Se você deseja colaborar, siga as etapas abaixo:
 
-# production mode
-$ npm run start:prod
-```
+1. Crie um fork deste repositório.
+2. Crie uma branch para sua feature/correção: `git checkout -b minha-feature`.
+3. Faça as alterações desejadas e commit as mudanças: `git commit -m "Minha feature super legal"`.
+4. Envie as alterações para o seu repositório fork: `git push origin minha-feature`.
+5. Abra um pull request neste repositório, descrevendo suas alterações.
 
-## Test
+## Suporte
 
-```bash
-# unit tests
-$ npm run test
+Se você tiver alguma dúvida ou encontrar algum problema, sinta-se à vontade para entrar em contato com nossa equipe de suporte em <support@wizer.com>.
 
-# e2e tests
-$ npm run test:e2e
+## Licença
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Este projeto está licenciado sob os termos da Licença Apache-2.0 license. Consulte o arquivo `LICENSE` para obter mais informações.
