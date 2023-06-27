@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common'
 import { UserRepository } from '../contracts/user-repository'
-import { UserRegistrationInput } from '../../dto/user-registration-input'
-import { UserUpdateInput } from '../../dto/user-update-input'
+import { UserRegistrationInput } from '../../dto/user-registration-input.dto'
+import { UserUpdateInput } from '../../dto/user-update-input.dto'
 
 import { OrmPrisma } from 'src/infra/persistence/orms/prisma/orm-prisma.service'
 
 import { UserAdapter } from '../adapters/user-adapter'
-import { UserOutput } from '../../dto/user-output'
+import { UserOutput } from '../../dto/user-output.dto'
 import { UserModel } from '../adapters/user-model'
 
 @Injectable()

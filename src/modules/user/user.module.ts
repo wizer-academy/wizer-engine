@@ -1,20 +1,20 @@
 import { Module } from '@nestjs/common'
 import { UUIDProviderImpl } from 'src/shared/providers/uuid-provider/implementations/uuid-provider'
-import { UserRegisterService } from './services/register'
-import { UserDeleteService } from './services/delete'
-import { UserGetService } from './services/get'
-import { UserUpdateService } from './services/update'
-import { UserGetController } from './controllers/user-get'
-import { UserUpdateController } from './controllers/user-update'
-import { UserDeleteController } from './controllers/user-delete'
-import { UserRegisterController } from './controllers/user-register'
+import { UserRegisterService } from './services/register-user.service'
+import { UserDeleteService } from './services/delete-user.service'
+import { UserGetService } from './services/get-user.service'
+import { UserUpdateService } from './services/update-user.service'
+import { UserGetController } from './controllers/user-get.controller'
+import { UserUpdateController } from './controllers/user-update.controller'
+import { UserDeleteController } from './controllers/user-delete.controller'
+import { UserRegisterController } from './controllers/user-register.controller'
 import { UserRepositoryOrmPrisma } from './repositories/implementations/user-repository-orm-prisma'
 import { PersistenceModule } from 'src/infra/persistence/persistence.module'
-import { UserUploadPhotoController } from './controllers/upload-photo'
-import { UploadPhotoService } from './services/upload-photo'
-import { UserInterestsAddController } from './controllers/user-interests-add'
-import { AddUserInterestsService } from './services/add-user-interests'
-import { UpdateInterestsService } from './services/update-interests'
+import { UserUploadUserPhotoController } from './controllers/upload-photo.controller'
+import { UploadUserPhotoService } from './services/upload-user-photo.service'
+import { UserInterestsAddController } from './controllers/user-interests-add.controller'
+import { AddUserInterestsService } from './services/add-user-interests.service'
+import { UpdateUserInterestsService } from './services/update-user-interests.service'
 
 @Module({
   imports: [PersistenceModule],
@@ -23,7 +23,7 @@ import { UpdateInterestsService } from './services/update-interests'
     UserUpdateController,
     UserDeleteController,
     UserRegisterController,
-    UserUploadPhotoController,
+    UserUploadUserPhotoController,
     UserInterestsAddController,
   ],
   providers: [
@@ -31,9 +31,9 @@ import { UpdateInterestsService } from './services/update-interests'
     UserDeleteService,
     UserGetService,
     UserUpdateService,
-    UploadPhotoService,
+    UploadUserPhotoService,
     AddUserInterestsService,
-    UpdateInterestsService,
+    UpdateUserInterestsService,
     {
       provide: 'UUIDProvider',
       useClass: UUIDProviderImpl,

@@ -1,6 +1,6 @@
-import { UserOutput } from '../../dto/user-output'
-import { UserRegistrationInput } from '../../dto/user-registration-input'
-import { UserUpdateInput } from '../../dto/user-update-input'
+import { UserOutput } from '../../dto/user-output.dto'
+import { UserRegistrationInput } from '../../dto/user-registration-input.dto'
+import { UserUpdateInput } from '../../dto/user-update-input.dto'
 import { UserModel } from '../adapters/user-model'
 
 export interface UserRepository {

@@ -9,6 +9,7 @@ import firebase, { ServiceAccount } from 'firebase-admin'
 import { UserRepository } from '../repositories/contracts/user-repository'
 import { UUIDProvider } from 'src/shared/providers/uuid-provider/contract/uuid-provider'
 import { Express } from 'express'
+import { UploadOutput } from '../dto/upload-output.dto'
 
 const firebaseCredentials: ServiceAccount = {
   projectId: process.env.FIREBASE_PROJECT_ID,
@@ -25,7 +26,7 @@ const bucket = firebase
   .bucket()
 
 @Injectable()
-export class UploadPhotoService {
+export class UploadUserPhotoService {
   constructor(
     @Inject('UserRepository')
     private readonly userRepository: UserRepository,
@@ -34,7 +35,7 @@ export class UploadPhotoService {
     private readonly uuidProvider: UUIDProvider,
   ) {}
 
-  async uploadPhoto(id, file: Express.Multer.File) {
+  async uploadPhoto(id, file: Express.Multer.File): Promise<UploadOutput> {
     const existsUser = await this.userRepository.getById(id)
     if (!existsUser) {
       throw new NotFoundException('O usuário não existe na base de dados.')
@@ -71,7 +72,7 @@ export class UploadPhotoService {
     stream.end(buffer)
 
     return {
-      url_photo: url,
+      url,
     }
   }
 }

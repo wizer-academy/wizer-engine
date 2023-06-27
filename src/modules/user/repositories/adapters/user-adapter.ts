@@ -1,4 +1,4 @@
-import { UserOutput } from '../../dto/user-output'
+import { UserOutput } from '../../dto/user-output.dto'
 import { UserModel } from './user-model'
 
 export class UserAdapter {

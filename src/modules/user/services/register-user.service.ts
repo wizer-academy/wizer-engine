@@ -1,7 +1,7 @@
 import { ConflictException, Inject, Injectable } from '@nestjs/common'
 
 import * as bcrypt from 'bcrypt'
-import { UserRegistrationInput } from '../dto/user-registration-input'
+import { UserRegistrationInput } from '../dto/user-registration-input.dto'
 import { User } from '../entities/user.entity'
 import { UUIDProvider } from 'src/shared/providers/uuid-provider/contract/uuid-provider'
 import { UserRepository } from '../repositories/contracts/user-repository'

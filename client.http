@@ -25,7 +25,7 @@ content-type: application/json
 ###
 GET http://localhost:3000/auth/profile HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5zb25AZW1haWwuY29tIiwibmFtZSI6IkpvaG5zb24iLCJzdWIiOiIxZjEwZjE4Zi0zM2UzLTQyMWUtOTc1Yi1mYmVlZWYwMGVhZmYiLCJpYXQiOjE2ODc1NzYxNzYsImV4cCI6MTY4ODE4MDk3Nn0.aQ4QIXt6Z6gXw6EC6HHJpm6T2xoKJOoQd8tYeWxIgJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5zb24uZG9lQGVtYWlsLmNvbSIsIm5hbWUiOiJKb2huc29uIiwic3ViIjoiN2UwMTVhMmYtNzQ4MS00ZWI2LWI4NTYtY2U0NGVhZjdiOWNlIiwiaWF0IjoxNjg3ODgwOTExLCJleHAiOjE2ODg0ODU3MTF9.eBfAbdnOm_HkghA0g-POmMkcTIfnjDQDR9ELhMag46o
 
 ###
 DELETE  http://localhost:3000/user/2293c422-d5bc-4155-987f-771b107d5631 HTTP/1.1

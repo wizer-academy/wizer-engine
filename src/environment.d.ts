@@ -7,6 +7,18 @@ declare global {
       FIREBASE_PRIVATE_KEY: string
     }
   }
+
+  namespace Express {
+    interface Request {
+      userInfoTokenJWT: {
+        email: string
+        name: string
+        sub: string
+        iat: number
+        exp: number
+      }
+    }
+  }
 }
 
 export {}

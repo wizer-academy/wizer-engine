@@ -1,6 +1,6 @@
 import { Interests } from '../repositories/adapters/user-model'
 
-export type UserOutput = {
+export class UserOutput {
   id: string
   email: string
   name: string

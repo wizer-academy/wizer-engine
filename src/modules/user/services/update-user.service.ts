@@ -1,7 +1,7 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 
 import * as bcrypt from 'bcrypt'
-import { UserUpdateInput } from '../dto/user-update-input'
+import { UserUpdateInput } from '../dto/user-update-input.dto'
 import { UserRepository } from '../repositories/contracts/user-repository'
 
 @Injectable()
