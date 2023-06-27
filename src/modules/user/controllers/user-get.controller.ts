@@ -28,6 +28,7 @@ export class UserGetController {
   @ApiUnauthorizedResponse({
     description: 'Não autorizado.',
   })
+  @ApiBadRequestResponse({ description: 'Requisição invalida.' })
   async getAll(): Promise<UserOutput[]> {
     return this.userGetService.getAll()
   }
@@ -46,7 +47,7 @@ export class UserGetController {
   @ApiNotFoundResponse({
     description: 'Usuário não encontrado.',
   })
-  @ApiBadRequestResponse({ status: 400, description: 'Requisição invalida.' })
+  @ApiBadRequestResponse({ description: 'Requisição invalida.' })
   async getOne(@Param('id', ParseUUIDPipe) id: string): Promise<UserOutput> {
     return this.userGetService.getOne(id)
   }

@@ -28,7 +28,7 @@ export class UserDeleteController {
     status: 401,
     description: 'Não autorizado.',
   })
-  @ApiBadRequestResponse({ status: 400, description: 'Requisição invalida.' })
+  @ApiBadRequestResponse({ description: 'Requisição invalida.' })
   async handle(@Param('id', ParseUUIDPipe) id: string): Promise<UserOutput> {
     return this.userDeleteService.remove(id)
   }
