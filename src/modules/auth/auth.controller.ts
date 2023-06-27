@@ -12,6 +12,7 @@ import { SignInInput } from './dto/sign-in.dto'
 import { Public } from './decorators/public.decorator'
 import {
   ApiBadRequestResponse,
+  ApiBearerAuth,
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
@@ -21,6 +22,7 @@ import { Request } from 'express'
 
 @ApiTags('Authentication')
 @Controller('auth')
+@ApiBearerAuth()
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
