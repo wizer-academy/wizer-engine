@@ -2,8 +2,7 @@ import {
   Controller,
   HttpCode,
   HttpStatus,
-  MaxFileSizeValidator,
-  ParseFilePipe,
+  ParseFilePipeBuilder,
   ParseUUIDPipe,
   Post,
   Query,
@@ -22,12 +21,13 @@ import {
   ApiOkResponse,
   ApiTags,
   ApiUnauthorizedResponse,
+  ApiUnprocessableEntityResponse,
 } from '@nestjs/swagger'
 import { UploadOutput } from '../dto/upload-output.dto'
-import { FileUploadDto } from '../dto/file-upload.dto'
+import { FileUploadSwagger } from '../dto/file-upload.dto'
 
 @ApiBearerAuth()
-@ApiTags('User')
+@ApiTags('Files')
 @Controller('user')
 export class UserUploadUserPhotoController {
   constructor(
@@ -48,24 +48,32 @@ export class UserUploadUserPhotoController {
   @ApiNotFoundResponse({
     description: 'Usuário não encontrado.',
   })
+  @ApiUnprocessableEntityResponse({
+    description: 'Não foi possível processar a requisição.',
+  })
   @ApiBadRequestResponse({ description: 'Requisição invalida.' })
   @UseInterceptors(FileInterceptor('photo'))
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     description: 'Foto do usuário',
-    type: FileUploadDto,
+    type: FileUploadSwagger,
   })
   async handle(
     @Query('id', ParseUUIDPipe) id: string,
     @UploadedFile(
-      new ParseFilePipe({
-        validators: [
-          new MaxFileSizeValidator({
-            maxSize: 512000,
-          }),
-        ],
-        fileIsRequired: true,
-      }),
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({
+          fileType: /(jpg|jpeg|png)$/,
+        })
+
+        .addMaxSizeValidator({
+          maxSize: 512000,
+          message: 'O arquivo deve ter no máximo 512kb.',
+        })
+        .build({
+          fileIsRequired: true,
+          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        }),
     )
     file: Express.Multer.File,
   ): Promise<UploadOutput> {
