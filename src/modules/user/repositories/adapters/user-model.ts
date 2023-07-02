@@ -1,13 +1,7 @@
-export type Interests = {
-  id: string
-  name: string
-}
+import { Interest, User } from '@prisma/client'
 
-export type UserModel = {
-  id: string
-  email: string
-  password: string
-  name: string
-  profile_url?: string
-  interests?: Interests[]
+type InterestsModel = Interest
+
+export type UserModel = User & {
+  interests?: InterestsModel[]
 }
