@@ -1,4 +1,7 @@
-import { Interests } from '../repositories/adapters/user-model'
+type Interests = {
+  id: string
+  name: string
+}
 
 export class UserOutput {
   id: string
