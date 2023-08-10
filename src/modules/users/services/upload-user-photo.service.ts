@@ -7,9 +7,9 @@ import {
 
 import firebase, { ServiceAccount } from 'firebase-admin'
 import { UserRepository } from '../repositories/contracts/user-repository'
-import { UUIDProvider } from 'src/shared/providers/uuid-provider/contract/uuid-provider'
 import { Express } from 'express'
 import { UploadOutput } from '../dto/upload-output.dto'
+import { UUIDProvider } from 'src/infra/providers/uuid-provider/contract/uuid-provider'
 
 const firebaseCredentials: ServiceAccount = {
   projectId: process.env.FIREBASE_PROJECT_ID,
@@ -46,10 +46,10 @@ export class UploadUserPhotoService {
     }
 
     const { originalname, buffer } = file
-    const nameFile =
+    const fileName =
       this.uuidProvider.generateUUID() + '.' + originalname.split('.').pop()
 
-    const fileUpload = bucket.file('users-profiles/' + nameFile)
+    const fileUpload = bucket.file('users-profiles/' + fileName)
 
     const stream = fileUpload.createWriteStream({
       metadata: {

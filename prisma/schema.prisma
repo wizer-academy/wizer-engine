@@ -11,14 +11,45 @@ model User {
   id   String @id @default(uuid())
   name String
 
-  email       String      @unique
+  email       String     @unique
   password    String
   profile_url String?
   interests   Interest[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Interest {
   id    String @id @default(uuid())
   name  String
   users User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Course {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+  coverUrl    String
+
+  lessons Lesson[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lesson {
+  id      Int    @id @default(autoincrement())
+  title   String
+  content String
+  videoUrl     String
+
+  Course   Course? @relation(fields: [courseId], references: [id])
+  courseId Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

@@ -7,9 +7,9 @@ import {
   Post,
   Req,
 } from '@nestjs/common'
-import { AuthService } from './auth.service'
-import { SignInInput } from './dto/sign-in.dto'
-import { Public } from './decorators/public.decorator'
+import { AuthService } from '../services/auth.service'
+import { SignInInput } from '../dto/sign-in.dto'
+import { Public } from '../decorators/public.decorator'
 import {
   ApiBadRequestResponse,
   ApiBearerAuth,
@@ -17,10 +17,10 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger'
-import { SignInOutput } from './dto/sign-in-output.dto'
+import { SignInOutput } from '../dto/sign-in-output.dto'
 import { Request } from 'express'
 
-@ApiTags('Authentication')
+@ApiTags('Auth')
 @Controller('auth')
 @ApiBearerAuth()
 export class AuthController {
@@ -29,7 +29,7 @@ export class AuthController {
   /**
    * Autentica um usuário
    */
-  @Post()
+  @Post('sign-in')
   @Public()
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({

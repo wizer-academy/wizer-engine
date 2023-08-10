@@ -1,22 +1,23 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 
-import { UserRepository } from '../repositories/contracts/user-repository'
+import { UserRepository } from '../../users/repositories/contracts/user-repository'
+import { CreateInterestsInputDto } from '../../users/dto/user-interests.dto'
 
 @Injectable()
-export class UpdateUserInterestsService {
+export class CreateUserInterestsService {
   constructor(
     @Inject('UserRepository')
     private readonly userRepository: UserRepository,
   ) {}
 
-  async updateInterests(input: any) {
+  async addInterests(input: CreateInterestsInputDto) {
     const { userId, interests } = input
 
     await this.validateUserAndInterestsExists(userId, interests)
 
     for (const interest of interests) {
       const { id } = interest
-      await this.userRepository.updateInterests(userId, id)
+      await this.userRepository.addInterests(userId, id)
     }
 
     return await this.userRepository.getById(userId)

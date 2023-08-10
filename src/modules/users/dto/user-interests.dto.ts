@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger'
+import { ApiProperty, PartialType } from '@nestjs/swagger'
 import {
   ArrayMaxSize,
   ArrayNotEmpty,
@@ -7,7 +7,7 @@ import {
   IsString,
 } from 'class-validator'
 
-export class InterestsInput {
+export class CreateInterestsInputDto {
   @IsString()
   @IsNotEmpty()
   userId: string
@@ -17,14 +17,6 @@ export class InterestsInput {
     minimum: 1,
     maximum: 3,
     isArray: true,
-    default: [
-      {
-        id: '19c801066-a5e4-4e24-936d-9d708468e7cf',
-      },
-      {
-        id: '3b9d7079-a962-46ce-934c-566ad3d6b693',
-      },
-    ],
   })
   @IsArray()
   @ArrayNotEmpty()
@@ -33,3 +25,7 @@ export class InterestsInput {
     id: string
   }[]
 }
+
+export class UpdateInterestsInputDto extends PartialType(
+  CreateInterestsInputDto,
+) {}

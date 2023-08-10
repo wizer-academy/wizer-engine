@@ -27,7 +27,7 @@ import { UploadOutput } from '../dto/upload-output.dto'
 import { FileUploadSwagger } from '../dto/file-upload.dto'
 
 @ApiBearerAuth()
-@ApiTags('Files')
+@ApiTags('Upload')
 @Controller('user')
 export class UserUploadUserPhotoController {
   constructor(

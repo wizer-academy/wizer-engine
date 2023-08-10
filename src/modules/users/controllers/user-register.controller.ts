@@ -1,7 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common'
 
 import { UserRegistrationInput } from '../dto/user-registration-input.dto'
-import { UserRegisterService } from '../services/register-user.service'
+import { UserRegisterService } from '../services/user-register.service'
 import { Public } from 'src/modules/auth/decorators/public.decorator'
 import {
   ApiBadRequestResponse,
@@ -21,7 +21,7 @@ export class UserRegisterController {
   /**
    * Registar um novo usuário
    */
-  @Post()
+  @Post('sign-up')
   @Public()
   @ApiCreatedResponse({
     description: 'Usuário registrado com sucesso.',
